@@ -36,9 +36,9 @@ public class SofrServeTestingSelenium {
     public void checkMacBook()  {
         // given
         WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(options);
+    //    ChromeOptions options = new ChromeOptions();
+     //   options.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICITLY_WAIT_SECONDS));
         driver.manage().window().maximize();
         presentationSleep(ONE_SECOND_WAIT);
