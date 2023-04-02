@@ -19,17 +19,21 @@ import java.time.Duration;
 
 public class SofrServeTestingSelenium {
 
-    private static final String BASE_URL = "https://demo.opencart.com/";
+    private static final String BASE_URL = "http://taqc-opencart.epizy.com/";
     private static final Long IMPLICITLY_WAIT_SECONDS = 10L;
     private static final Long ONE_SECOND_DELAY = 1000L;
     private static final int ONE_SECOND_WAIT = 1;
 
-    private void presentationSleep(int seconds) throws InterruptedException {
+    private void presentationSleep(int seconds) {
+        try {
             Thread.sleep(seconds * ONE_SECOND_DELAY);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test
-    public void checkMacBook() throws InterruptedException {
+    public void checkMacBook()  {
         // given
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
@@ -41,10 +45,10 @@ public class SofrServeTestingSelenium {
         // when
         driver.get(BASE_URL);
         presentationSleep(ONE_SECOND_WAIT);
- //   System.out.println(driver.getPageSource());
-        driver.findElement(By.className("dropdown")).click();
+        driver.findElement(By.cssSelector("button.btn.btn-link.dropdown-toggle")).click();
         presentationSleep(ONE_SECOND_WAIT);
-        driver.findElement(By.partialLinkText("Euro")).click();
+        //
+        driver.findElement(By.cssSelector("button[name='EUR']")).click();
         presentationSleep(ONE_SECOND_WAIT);
         driver.findElement(By.name("search")).click();
         driver.findElement(By.name("search")).clear();
@@ -53,6 +57,7 @@ public class SofrServeTestingSelenium {
         //then
         WebElement price = driver.findElement(By.xpath("//a[text()='iMac']/../following-sibling::p[@class='price']"));
         Assert.assertFalse(price.getText().contains("111.55€"));
+        Assert.assertTrue(price.getText().contains("95.72€"));
 
         // tears down
         driver.quit();
