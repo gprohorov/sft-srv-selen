@@ -4,17 +4,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 //import org.openqa.selenium.support.ui.*;
@@ -23,18 +14,17 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
 
 import java.time.Duration;import java.util.List;import java.util.stream.Collectors;
 /*
   @author   george
   @project   sft-srv-selen
-  @class  SofrServeTestingSelenium
+  @class  SofrServeTestingWait
   @version  1.0.0 
-  @since 24.03.23 - 22.13
+  @since 06.04.23 - 10.12
 */
 
-public class SofrServeTestingWait {
+public class SoftServeTestingWait {
 
     private static final String BASE_URL = "https://devexpress.github.io/devextreme-reactive/react/grid/docs/guides/filtering/";
     private static final Long IMPLICITLY_WAIT_SECONDS = 10L;
