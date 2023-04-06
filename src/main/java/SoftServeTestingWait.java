@@ -75,7 +75,7 @@ public class SoftServeTestingWait {
             footerButtonsList.get(0).click();
             presentationSleep(2);
         }
-     //   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICITLY_WAIT_SECONDS));
+
     }
     @Test
     public void WaitTesting()throws InterruptedException {
